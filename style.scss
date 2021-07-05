@@ -1,0 +1,303 @@
+*{
+    font-size: 14px;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+    max-width: 1600px;
+    // max-height: 685px;
+    font-family: arial,sans-serif;
+    
+   
+}
+
+$color-one:#dfe4ea;
+$color-two:#747d8c;
+$color-text:#333;
+$color-four:#f1f2f6;
+$color-fifth:#dcdde1;
+$background-color-button:#f8f9fa;
+$box-shadow-button:#e9ecef;
+$shadow-button2:#ced4da;
+$size:"font-size";
+$margin:"margin";
+$bor:"border";
+@mixin button($marginright,$marginleft,$radius,$padding) {
+   #{$margin}-right: $marginright;
+   #{$margin}-left: $marginleft;
+    #{$bor}-radius: $radius;
+    padding: $padding;
+    #{$bor}:none;
+    // word-spacing: 2px;
+    background-color: $background-color-button;
+    box-shadow: 0 0 2px 0 $box-shadow-button ;
+}
+@mixin display-tags($dir,$align,$justify) {
+    display: flex;
+    flex-direction:$dir;
+    justify-content: $justify;
+    align-items:$align;
+}
+@mixin li-style {
+    list-style: none;
+}
+@mixin style-main-google{
+    margin: 0 0 30px 0;
+    padding: 12px;
+    border: 1px solid $color-fifth;
+    border-radius: 25px;
+    
+}
+@mixin hoverbutton {
+          box-shadow: 0 0 3px #adb5bd;
+          cursor: pointer;
+          border-radius: 2.5px
+}
+@mixin footerstyle {
+    text-decoration: none;
+    color: #777;
+    padding:20px;
+    align-self: center;
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    
+}
+.header-section{
+    grid-column: 1/-1;
+}
+.main-section{
+    grid-column: 1/-1;
+}
+.navigashion-bar-items{
+    
+   @include display-tags(row,center,flex-end);
+    li{
+        @include li-style;
+        #{$margin}:16px 21px 0 0;
+        i{
+            #{$size}:2.3em;
+        }
+        
+        a{
+            text-decoration:none; 
+            color: $color-text;
+            // #{$size}:1.1em;
+            &:hover{
+                text-decoration: underline;
+            }
+            #menu{
+                #{$size}:1.3em;
+                &:hover{
+                    background-color: $color-four;
+                    border-radius: 50%;
+                    padding: 7px;
+                }
+            }
+
+        }
+    }
+}
+.main-body-google{
+    position: relative;
+    @include display-tags(column,center,space-evenly);
+    img{
+        #{$margin}:58px 0 25px 0;
+    }
+        input{
+            
+            @include style-main-google;
+            width:45%;
+            &:hover{
+                border: none;
+                outline: none;
+                box-shadow: 0 1px 9px 0 #d3d3d3; 
+            }
+            
+            }
+    }
+   
+
+.main-body-button{
+    @include display-tags(row,center,center);
+    .button1{
+      @include button(8px,0,2px,8px 16px);
+      &:hover{
+          @include hoverbutton()
+      }
+    } 
+    .button2{
+     @include button(0,8px,2px,8px 16px);
+     &:hover{
+      @include hoverbutton()
+     }
+     
+}
+}
+p{
+   
+    margin-bottom: 239px;
+    text-align: center;
+    font-size: .9em;
+    #{$margin}-top:35px;
+    a{
+        text-decoration: none;
+    }
+}
+footer{
+    grid-column: 1/-1;
+    overflow: hidden;
+    @include display-tags(row,flex-start, space-between);
+    background-color: #f1f2f6;
+    height: 44px;
+    .left-footer-side {
+      @include footerstyle();
+      a{
+        @include footerstyle();
+    
+      }
+    }
+    .right-footer-side {
+      @include footerstyle();
+      a{
+        @include footerstyle();
+    
+      }
+        
+    }
+}
+//responsive web page google// 
+
+@media screen and (max-width:1070px) {
+    .main-body-google{
+        position: relative;
+        @include display-tags(column,center,space-evenly);
+        img{
+            #{$margin}:58px 0 25px 0;
+        }
+            input{
+                
+                @include style-main-google;
+                width:49%;
+                &:hover{
+                    border: none;
+                    outline: none;
+                    box-shadow: 0 1px 9px 0 #d3d3d3; 
+                }
+                
+                }
+        }
+}
+//resposive for 900x !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+@media screen and (max-width:900px) {
+    .main-body-google{
+        position: relative;
+        @include display-tags(column,center,space-evenly);
+        img{
+            #{$margin}:58px 0 25px 0;
+        }
+            input{
+                
+                @include style-main-google;
+                width:60%;
+                &:hover{
+                    border: none;
+                    outline: none;
+                    box-shadow: 0 1px 9px 0 #d3d3d3; 
+                }
+                
+                }
+        }
+}
+
+//resposive for 633px !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+@media screen and (max-width:633px) {
+  
+    .main-body-google{
+        position: relative;
+        @include display-tags(column,center,space-evenly);
+        img{
+            #{$margin}:58px 0 25px 0;
+        }
+            input{
+                
+                @include style-main-google;
+                width:88%;
+                &:hover{
+                    border: none;
+                    outline: none;
+                    box-shadow: 0 1px 9px 0 #d3d3d3; 
+                }
+                
+                }
+        }
+
+    .main-body-button{
+        @include display-tags(row,center,center);
+        .button1{
+          @include button(8px,0,2px,8px 13px);
+          &:hover{
+              @include hoverbutton()
+          }
+        } 
+        .button2{
+         @include button(0,8px,2px,8px 13px);
+         &:hover{
+          @include hoverbutton()
+         }
+         
+    }
+    }
+
+    footer{
+      
+        @include display-tags(column,flex-start,space-between);
+        height:69px;
+       
+        .left-footer-side{
+            
+             padding: 10px;
+             a{
+                #{$margin}:0 10px 10px 0 ;
+            }
+        }
+        .right-footer-side{
+            
+            padding: 10px;
+            a{
+                #{$margin}:0 10px 0 10px ;
+            }
+        }
+    }
+}
+//resposive for 370px !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+@media screen and (max-width:370px){
+     p{
+     margin-bottom: 220px;
+
+     }
+    footer{
+      
+        @include display-tags(column,flex-start,space-evenly);
+        height:90px;
+       
+        .left-footer-side{
+            
+             padding: 9px;
+             a{
+                #{$margin}:0 3px 3px ;
+            }
+        }
+        .right-footer-side{
+            
+            padding: 9px;
+            a{
+                #{$margin}:0 3px 0 3px ;
+            }
+        }
+    }
+}
+
